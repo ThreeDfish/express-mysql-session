@@ -79,7 +79,8 @@ module.exports = function(session) {
 				expires: 'expires',
 				data: 'data'
 			}
-		}
+		},
+		jsonData: false
 	};
 
 	MySQLStore.prototype.setOptions = function(options) {
@@ -110,7 +111,7 @@ module.exports = function(session) {
 		debug.log('Creating sessions database table');
 
 		var fs = require('fs');
-		var schemaFilePath = path.join(__dirname, 'schema.sql');
+		var schemaFilePath = this.options.jsonData ? path.join(__dirname, 'schema-json.sql'):path.join(__dirname, 'schema.sql');
 
 		fs.readFile(schemaFilePath, 'utf-8', function(error, sql) {
 
