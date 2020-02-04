@@ -180,7 +180,7 @@ module.exports = function(session) {
 			}
 
 			try {
-				var session = JSON.parse(row.data);
+				var session = typeof row.data === "string" ? JSON.parse(row.data):row.data;
 			} catch (error) {
 				debug.error('Failed to parse data for session (' + session_id + ')');
 				debug.error(error);
