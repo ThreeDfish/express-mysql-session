@@ -124,7 +124,9 @@ var options = {
 			expires: 'expires',
 			data: 'data'
 		}
-	}
+	},
+	jsonData: false
+	// Whether or not to create the data column as type JSON, defaults to false which creates as medium text.
 };
 ```
 
